@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodeapp
+  name: {{ .Release.Name }}
 spec:
   selector:
-    app: nodeapp
+    app: {{ .Release.Name }}
   ports:
-    - port: 8090
-      targetPort: 8888
-  type: NodePort
+    - port: {{ .Values.nodeservice.port }}
+      targetPort: {{ .Values.nodeservice.targetport }}
+  type: {{ .Values.nodeservice.type }}
