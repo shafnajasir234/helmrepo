@@ -111,6 +111,8 @@ container:
   ports: 8888
 
 nodeservice:
-  type: NodePort
+  type: ClusterIp
   port: 8090
   targetport: 8888
+traefik:
+  port: 8090
